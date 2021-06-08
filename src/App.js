@@ -1,11 +1,12 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import Table from './Components/Table';
 
-export default function App() {
+const App = () => {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+      <h1>Transaction Application</h1>
+      <Table />
     </div>
   );
-}
+};
+export default App;
