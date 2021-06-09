@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const NewTransaction = () => {
+const NewTransaction = props => {
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [transactionType, setTransactionType] = useState('Debit');
@@ -9,10 +9,10 @@ const NewTransaction = () => {
     description: description,
     type: transactionType
   };
-  const submitHandler = () => {
-    console.log('data ' + transactionData);
+  const submitHandler = event => {
     arr.push(transactionData);
     console.log(arr);
+    // event.preventDefault();
   };
 
   // console.log(transactionData);
@@ -31,10 +31,6 @@ const NewTransaction = () => {
   const handleTransactionTypeChange = event => {
     setTransactionType(event.target.value);
   };
-
-  // const submitHandler = event => {
-  //   event.preventDefault();
-  // };
 
   return (
     <>

@@ -2,7 +2,7 @@ import React from 'react';
 import NewTransaction from './Components/NewTransaction ';
 import Table from './Components/Table';
 import './style.css';
-const App = () => {
+const App = props => {
   return (
     <div>
       <h1>Transaction Application</h1>
