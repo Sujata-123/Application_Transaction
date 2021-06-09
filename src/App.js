@@ -1,5 +1,5 @@
 import React from 'react';
-import NewTransaction from './Components/NewTransaction';
+import NewTransaction from './Components/NewTransaction ';
 import Table from './Components/Table';
 import './style.css';
 const App = () => {

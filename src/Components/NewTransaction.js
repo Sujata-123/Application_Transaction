@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 const NewTransaction = () => {
-  const [save, setSave] = useState();
-  const [cancel, setCancel] = useState();
   const [amount, setAmount] = useState();
   const [description, setDescription] = useState();
+  const [transactionType, setTransactionType] = useState();
+  const [save, setSave] = useState();
+  const [cancel, setCancel] = useState();
   const saveHandler = () => {
     setSave('save');
   };
@@ -19,7 +20,9 @@ const NewTransaction = () => {
   };
 
   //function to handle transaction type change
-  const handleTransactionTypeChange = () => {};
+  const handleTransactionTypeChange = () => {
+    setTransactionType();
+  };
 
   const cancelHandler = () => {
     setCancel('debit');
@@ -27,23 +30,38 @@ const NewTransaction = () => {
   return (
     <>
       <div>
-        <h1>New Transaction</h1>
+        <h2>New Transaction</h2>
       </div>
       <div>
-        <select>
-          <option value="transaction_type">transaction_type</option>
-          <option value="Credit">Credit</option>
+        <select
+          value={transactionType}
+          onChange={handleTransactionTypeChange}
+          required
+        >
           <option value="Debit">Debit</option>
+          <option value="Credit">Credit</option>
         </select>
       </div>
-      <div>Amount</div>
       <div>
-        Description
-        <textarea />
+        <input
+          type="text"
+          value={amount}
+          onChange={handleAmountChange}
+          placeholder="Amount"
+          required
+        />
       </div>
 
-      <button onClick={saveHandler}>Save {save}</button>
-      <button onClick={cancelHandler}>Cancel {cancel}</button>
+      <div>
+        <textarea
+          type="text"
+          value={description}
+          onChange={handleDescriptionChange}
+          placeholder="Discription"
+          required
+        />
+      </div>
+      <button type="submit">Add Transaction </button>
     </>
   );
 };
