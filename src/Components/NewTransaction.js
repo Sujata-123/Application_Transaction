@@ -12,7 +12,7 @@ const NewTransaction = props => {
   const submitHandler = event => {
     arr.push(transactionData);
     console.log(arr);
-    // event.preventDefault();
+    event.preventDefault();
   };
 
   // console.log(transactionData);
