@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const NewTransaction = props => {
+const NewTransaction = () => {
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [transactionType, setTransactionType] = useState('Debit');
