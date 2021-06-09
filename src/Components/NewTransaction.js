@@ -20,8 +20,10 @@ const NewTransaction = () => {
   };
 
   //function to handle transaction type change
-  const handleTransactionTypeChange = () => {
-    setTransactionType();
+  const handleTransactionTypeChange = event => {
+    setTransactionType(
+      `Transaction Type is either debit or credit ${event.target.value}`
+    );
   };
 
   const cancelHandler = () => {
@@ -29,39 +31,43 @@ const NewTransaction = () => {
   };
   return (
     <>
-      <div>
-        <h2>New Transaction</h2>
-      </div>
-      <div>
-        <select
-          value={transactionType}
-          onChange={handleTransactionTypeChange}
-          required
-        >
-          <option value="Debit">Debit</option>
-          <option value="Credit">Credit</option>
-        </select>
-      </div>
-      <div>
-        <input
-          type="text"
-          value={amount}
-          onChange={handleAmountChange}
-          placeholder="Amount"
-          required
-        />
-      </div>
+      <form>
+        <div>
+          <h2>New Transaction</h2>
+        </div>
+        <div>
+          <select
+            value={transactionType}
+            onChange={handleTransactionTypeChange}
+            required
+          >
+            <option value="Debit">Debit</option>
+            <option value="Credit">Credit</option>
+          </select>
+        </div>
+        <div>
+          <input
+            type="text"
+            value={amount}
+            onChange={handleAmountChange}
+            placeholder="Amount"
+            required
+          />
+        </div>
 
-      <div>
-        <textarea
-          type="text"
-          value={description}
-          onChange={handleDescriptionChange}
-          placeholder="Discription"
-          required
-        />
-      </div>
-      <button type="submit">Add Transaction </button>
+        <div>
+          <textarea
+            type="text"
+            value={description}
+            onChange={handleDescriptionChange}
+            placeholder="Discription"
+            required
+          />
+        </div>
+        <button type="submit">Add Transaction </button>
+      </form>
+      <button>Save</button>
+      <button>cancel</button>
     </>
   );
 };
