@@ -1,34 +1,41 @@
 import React, { useState } from 'react';
 const NewTransaction = () => {
-  const [amount, setAmount] = useState();
-  const [description, setDescription] = useState();
-  const [transactionType, setTransactionType] = useState();
-  const [save, setSave] = useState();
-  const [cancel, setCancel] = useState();
-  const saveHandler = () => {
-    setSave('save');
+  const [amount, setAmount] = useState('');
+  const [description, setDescription] = useState('');
+  const [transactionType, setTransactionType] = useState('Debit');
+  const arr = [];
+  const transactionData = {
+    amount: amount,
+    description: description,
+    type: transactionType
   };
+  const submitHandler = () => {
+    console.log('data ' + transactionData);
+    arr.push(transactionData);
+    console.log(arr);
+  };
+
+  // console.log(transactionData);
 
   //function to handle amount change
   const handleAmountChange = event => {
-    setAmount(`Amount change ${event.target.value}`);
+    setAmount(event.target.value);
   };
 
   //function to handle description change
   const handleDescriptionChange = event => {
-    setDescription(`Description change ${event.target.value}`);
+    setDescription(event.target.value);
   };
 
   //function to handle transaction type change
   const handleTransactionTypeChange = event => {
-    setTransactionType(
-      `Transaction Type is either debit or credit ${event.target.value}`
-    );
+    setTransactionType(event.target.value);
   };
 
-  const cancelHandler = () => {
-    setCancel('debit');
-  };
+  // const submitHandler = event => {
+  //   event.preventDefault();
+  // };
+
   return (
     <>
       <form>
@@ -47,7 +54,7 @@ const NewTransaction = () => {
         </div>
         <div>
           <input
-            type="text"
+            type="number"
             value={amount}
             onChange={handleAmountChange}
             placeholder="Amount"
@@ -64,10 +71,8 @@ const NewTransaction = () => {
             required
           />
         </div>
-        <button type="submit">Add Transaction </button>
+        <button onClick={submitHandler}>Add Transaction </button>
       </form>
-      <button>Save</button>
-      <button>cancel</button>
     </>
   );
 };

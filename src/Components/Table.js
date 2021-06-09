@@ -1,5 +1,9 @@
 import React from 'react';
 const Table = () => {
+  const saveTransactionDataHandler=()=>{
+
+  }
+
   return (
     <table>
       <tr>
