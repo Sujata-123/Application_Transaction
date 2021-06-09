@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 const NewTransaction = () => {
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
-  const [transactionType, setTransactionType] = useState('Debit');
+  const [transactionType, setTransactionType] = useState('Credit');
   const arr = [];
   const transactionData = {
     amount: amount,
@@ -14,7 +14,7 @@ const NewTransaction = () => {
     console.log(arr);
     event.preventDefault();
   };
-
+  
   // console.log(transactionData);
 
   //function to handle amount change
